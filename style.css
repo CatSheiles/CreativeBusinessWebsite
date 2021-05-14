@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
-/* color pallet so theme of site can easily be changed globally*/
+/* color pallet so theme of site can easily be changed globally */
 :root {
     --primary-color: #f60f20;
 }
@@ -27,12 +27,20 @@ p {
     font-size: 1.1rem;
 }
 
+/* home page section flex is default horizontal */
 section {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     align-items: center;
     padding: 100px;
+    margin-top: 60px;
+}
 
+/* section home */
+section.home {
+    flex-direction: row;
+    margin-top: 0;
 }
 
 /* home page button */
@@ -60,7 +68,7 @@ section {
     z-index: 20;
 }
 
-/* toggle fa-fa-bars*/
+/* toggle fa-fa-bars */
 .toggle {
     position: fixed;
     top: 0;
@@ -146,7 +154,6 @@ section {
     color: #111;
 }
 
-
 /* home page */
 .home-content {
     position: relative;
@@ -159,4 +166,60 @@ section {
     bottom: 0;
     right: 0;
     height: 110%;
+}
+
+/* services page  - fr(fraction) is 3equal columns on the grid
+    if you need say 2 columns can use 50% 50% alternative*/
+.services {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+.services .service {
+    padding: 30px;
+}
+
+.services .service:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.services .service h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 20px;
+    color: var(--primary-color);
+}
+
+.services .service .icon {
+    color: navy;
+}
+
+/* media query dislay no image if device width less than 540px so no image on phones smaller tablets
+    but image works well on tablets above 540px. Also adjust logo a tad moving it left+reduce font size */
+@media(max-width: 540px) {
+    .home-img {
+        display: none;
+    }
+    .logo {
+        top: 10px;
+        left: 40px;
+        font-size: 1.5rem;
+    }
+    /* on Section page 2columns work well on devides up to 540px*/
+    section {
+        padding: 100px 40px;
+    }
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* on Section page2 reduce size to 1column on phones */
+@media(max-width: 415px) {
+    .services {
+        grid-template-columns: 1fr;
+}
 }
