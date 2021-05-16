@@ -19,7 +19,7 @@ Sample of some of the content is below
 -------------------------------
 
 ***
-![title](imgReadme.png)
+![title](ImgReadme.png)
 ***
 
 ![title](Img2Readme.PNG)
